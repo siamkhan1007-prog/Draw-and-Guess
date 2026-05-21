@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draw & Guess</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="lobby">
+    <h1>Draw & Guess</h1>
+    <button onclick="createRoom()">Create Room</button>
+    <input id="roomCode" placeholder="Room Code">
+    <button onclick="joinRoom()">Join Room</button>
+  </div>
+
+  <div id="game" style="display:none">
+    <div id="info">
+      <span>Room: <strong id="roomDisplay"></strong></span>
+      <span>Time: <strong id="timer">60</strong></span>
+    </div>
+    
+    <canvas id="canvas" width="800" height="500"></canvas>
+    
+    <div id="controls">
+      <input type="color" id="color" value="#000000">
+      <input type="range" id="size" min="1" max="50" value="5">
+      <button onclick="clearCanvas()">Clear</button>
+      <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <div id="chat">
+      <div id="messages"></div>
+      <input id="chatInput" placeholder="Type guess here...">
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
